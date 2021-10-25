@@ -15,11 +15,11 @@ import com.mapbox.mapboxsdk.maps.Style;
 
 public class MapsBoxActivity extends AppCompatActivity {
     private MapView mapView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
+
+        MapsBoxActivity.getInstance(this, getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_maps_box);
 
         // Initiation of the MapView
