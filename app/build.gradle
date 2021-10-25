@@ -43,7 +43,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //Card view
     implementation 'androidx.cardview:cardview:1.0.0'
-    //Recycle view
+    //Recycle view.
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
