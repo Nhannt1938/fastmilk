@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        >
+        <ImageView
+            android:id="@+id/Btn_cancel_ds"
+            android:src="@drawable/ic_baseline_clear_24"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <TextView
+
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:text="Lịch sử đơn hàng"
+            android:textColor="#203048"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</LinearLayout>

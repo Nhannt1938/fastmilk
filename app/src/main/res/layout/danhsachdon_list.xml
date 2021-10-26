@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:clipToOutline="true"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+         >
+        <ImageView
+            android:id="@+id/Btn_cancel_ds"
+            android:src="@drawable/ic_baseline_clear_24"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <TextView
+
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:text="Đơn Hàng"
+            android:textColor="#203048"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/Sodon"
+            android:gravity="center_vertical"
+            android:textSize="30dp"
+            android:text="(0)"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_item_ds"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        tools:listitem="@layout/danhsachdonitem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

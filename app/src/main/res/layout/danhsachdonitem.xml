@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/view_ds_1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/txt_donso"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Đơn Số"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/Sodon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/txt_donso"
+            android:gravity="center_vertical"
+            android:text="0"
+            android:textSize="25dp" />
+
+        <TextView
+
+            android:id="@+id/Trangthai_ds"
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/trangthai_giaohang"
+            android:gravity="center"
+            android:text="Đang giao hàng"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </RelativeLayout>
+    <View
+        android:id="@+id/divide_line_1"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/view_ds_1"
+        android:background="#E9EAED"
+         android:layout_height="1dp"
+        android:layout_width="380dp"/>
+
+    <RelativeLayout
+        android:id="@+id/view_ds_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divide_line_1"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/img_Ping_map"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ping_map" />
+        <TextView
+android:textAppearance="IBM Plex Sans"
+            android:textColor="#203048"
+            android:layout_toRightOf="@id/img_Ping_map"
+            android:id="@+id/txt_Name_shop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Tên Cửa Hàng"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_below="@id/txt_Name_shop"
+            android:layout_toRightOf="@id/img_Ping_map"
+            android:id="@+id/txt_Address_shop"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Địa chỉ Cửa Hàng"
+            android:textSize="20dp" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:id="@+id/img_Call"
+            android:layout_marginLeft="40dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/btn_call" />
+    </RelativeLayout>
+    <View
+        android:layout_marginTop="5dp"
+        android:id="@+id/divide_line_2"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/view_ds_2"
+        android:background="#E9EAED"
+        android:layout_height="1dp"
+        android:layout_width="380dp"/>
+    <RelativeLayout
+        android:id="@+id/view_ds_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divide_line_2"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/img_icon_xulydonhang"
+            android:layout_marginLeft="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/xulydonhang_icon" />
+        <TextView
+            android:textAppearance="IBM Plex Sans"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textColor="#006DBA"
+            android:layout_toRightOf="@id/img_icon_xulydonhang"
+            android:id="@+id/txt_xulydonhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Xử lý đơn hàng"
+            android:textSize="20dp" />
+        <ImageView
+            android:id="@+id/img_icon_xulydonhang_right"
+           android:layout_marginRight="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_chevron_right" />
+    </RelativeLayout>
+</RelativeLayout>

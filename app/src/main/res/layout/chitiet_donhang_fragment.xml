@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        >
+        <ImageView
+            android:id="@+id/Btn_cancel_ds"
+            android:src="@drawable/ic_baseline_clear_24"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+        <TextView
+
+            android:layout_marginLeft="30dp"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:text="Chi tiết đơn hàng"
+            android:textColor="#203048"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_marginLeft="16dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Địa chỉ"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:text="KM"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_Ping_map"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ping_map" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="WAKANDA"
+                android:id="@+id/txt_Name_Of_Adrress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Forever"
+                android:id="@+id/txt_Detail_Of_Adrress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_centerHorizontal="true"
+        android:background="#E9EAED"
+        android:layout_height="1dp"
+        android:layout_width="380dp"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_Note"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_note" />
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_item_detail"
+                tools:listitem="@layout/chitiet_donhang_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:textFontWeight="600"
+        android:textAppearance="IBM Plex Sans"
+        android:textSize="14dp"
+        android:layout_marginTop="20dp"
+        android:text="THANH TOÁN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:text="Hình thức thanh toán"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="28.62dp"
+                    android:textFontWeight="600"
+                android:textAppearance="IBM Plex Sans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:text="Tiền Mặt"
+                android:textSize="16dp"
+                android:layout_marginLeft="28.62dp"
+                android:textFontWeight="600"
+                android:textAppearance="IBM Plex Sans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:text="Khuyến Mại"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="28.62dp"
+                android:textFontWeight="600"
+                android:textAppearance="IBM Plex Sans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:text="-1000000"
+                android:textSize="16dp"
+                android:layout_marginLeft="28.62dp"
+                android:textFontWeight="600"
+                android:textAppearance="IBM Plex Sans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:text="Tổng tiền"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="28.62dp"
+                android:textFontWeight="600"
+                android:textAppearance="IBM Plex Sans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:text="1000000"
+                android:textSize="16dp"
+                android:layout_marginLeft="28.62dp"
+                android:textFontWeight="600"
+                android:textAppearance="IBM Plex Sans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.google.android.material.button.MaterialButton
+      android:layout_weight="1"
+        app:backgroundTint="#FFF"
+        android:text="Thanh Toán"
+        android:layout_marginRight="10dp"
+        android:textColor="#D73200"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            app:backgroundTint="@color/giaohangthanhcong"
+            android:text="Đã giao hàng"
+            android:textColor="#203048"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"/>
+</LinearLayout>
+</LinearLayout>
+</LinearLayout>
