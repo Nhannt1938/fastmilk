@@ -1,66 +1,66 @@
 package com.example.fastmilk.models;
 
 public class DonHang {
-    private int maDon;
-    private int maDiemGiao;
-    private int maNV;
-    private int maKhuVuc;
-    private String ngayTaoDon;
+    private int idDon;
+    private int idDiemGiao;
+    private int idNV;
+    private int idKhuVuc;
+    private int ngayTaoDon;
     private String trangThai;
     private String tenNV;
     private float thanhTien;
 
-    public DonHang(int maDon, int maDiemGiao, int maNV, int maKhuVuc, String ngayTaoDon, String trangThai, String tenNV, float thanhTien) {
-        this.maDon = maDon;
-        this.maDiemGiao = maDiemGiao;
-        this.maNV = maNV;
-        this.maKhuVuc = maKhuVuc;
+    public DonHang() {
+    }
+
+    public DonHang(int idDon, int idDiemGiao, int idNV, int idKhuVuc, int ngayTaoDon, String trangThai, String tenNV, float thanhTien) {
+        this.idDon = idDon;
+        this.idDiemGiao = idDiemGiao;
+        this.idNV = idNV;
+        this.idKhuVuc = idKhuVuc;
         this.ngayTaoDon = ngayTaoDon;
         this.trangThai = trangThai;
         this.tenNV = tenNV;
         this.thanhTien = thanhTien;
     }
 
-    public DonHang() {
+    public int getIdDon() {
+        return idDon;
     }
 
-    public int getMaDon() {
-        return maDon;
+    public void setIdDon(int idDon) {
+        this.idDon = idDon;
     }
 
-    public void setMaDon(int maDon) {
-        this.maDon = maDon;
+    public int getIdDiemGiao() {
+        return idDiemGiao;
     }
 
-    public int getMaDiemGiao() {
-        return maDiemGiao;
+    public void setIdDiemGiao(int idDiemGiao) {
+        this.idDiemGiao = idDiemGiao;
     }
 
-    public void setMaDiemGiao(int maDiemGiao) {
-        this.maDiemGiao = maDiemGiao;
+    public int getIdNV() {
+        return idNV;
     }
 
-    public int getMaNV() {
-        return maNV;
+    public void setIdNV(int idNV) {
+        this.idNV = idNV;
     }
 
-    public void setMaNV(int maNV) {
-        this.maNV = maNV;
+    public int getIdKhuVuc() {
+        return idKhuVuc;
     }
 
-    public int getMaKhuVuc() {
-        return maKhuVuc;
+    public void setIdKhuVuc(int idKhuVuc) {
+        this.idKhuVuc = idKhuVuc;
     }
 
-    public void setMaKhuVuc(int maKhuVuc) {
-        this.maKhuVuc = maKhuVuc;
-    }
-
-    public String getNgayTaoDon() {
+    public int getNgayTaoDon() {
         return ngayTaoDon;
     }
 
-    public void setNgayTaoDon(String ngayTaoDon) {
+    public void setNgayTaoDon(int ngayTaoDon) {
         this.ngayTaoDon = ngayTaoDon;
     }
 

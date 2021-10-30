@@ -1,13 +1,13 @@
 package com.example.fastmilk.models;
 
 public class SanPham {
-    private int maSP;
+    private int idSP;
     private String tenSP;
     private float donGia;
     private String moTa;
 
-    public SanPham(int maSP, String tenSP, float donGia, String moTa) {
-        this.maSP = maSP;
+    public SanPham(int idSP, String tenSP, float donGia, String moTa) {
+        this.idSP = idSP;
         this.tenSP = tenSP;
         this.donGia = donGia;
         this.moTa = moTa;
@@ -16,12 +16,12 @@ public class SanPham {
     public SanPham() {
     }
 
-    public int getMaSP() {
-        return maSP;
+    public int getIdSP() {
+        return idSP;
     }
 
-    public void setMaSP(int maSP) {
-        this.maSP = maSP;
+    public void setIdSP(int idSP) {
+        this.idSP = idSP;
     }
 
     public String getTenSP() {

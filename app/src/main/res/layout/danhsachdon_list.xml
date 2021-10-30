@@ -37,14 +37,15 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_item_ds"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        tools:listitem="@layout/danhsachdonitem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        tools:listitem="@layout/danhsachdonitem" />
 
 
 </LinearLayout>

@@ -1,25 +1,16 @@
 package com.example.fastmilk.models;
 
 public class KhuVuc {
-    private int maKhuVuc;
+    private int idKhuVuc;
     private String tenKhuVuc;
     private String trangThai;
 
-    public KhuVuc(int maKhuVuc, String tenKhuVuc, String trangThai) {
-        this.maKhuVuc = maKhuVuc;
-        this.tenKhuVuc = tenKhuVuc;
-        this.trangThai = trangThai;
+    public int getIdKhuVuc() {
+        return idKhuVuc;
     }
 
-    public KhuVuc() {
-    }
-
-    public int getMaKhuVuc() {
-        return maKhuVuc;
-    }
-
-    public void setMaKhuVuc(int maKhuVuc) {
-        this.maKhuVuc = maKhuVuc;
+    public void setIdKhuVuc(int idKhuVuc) {
+        this.idKhuVuc = idKhuVuc;
     }
 
     public String getTenKhuVuc() {
@@ -36,5 +27,14 @@ public class KhuVuc {
 
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
+    }
+
+    public KhuVuc(int idKhuVuc, String tenKhuVuc, String trangThai) {
+        this.idKhuVuc = idKhuVuc;
+        this.tenKhuVuc = tenKhuVuc;
+        this.trangThai = trangThai;
+    }
+
+    public KhuVuc() {
     }
 }

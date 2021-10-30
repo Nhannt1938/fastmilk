@@ -1,15 +1,15 @@
 package com.example.fastmilk.models;
 
 public class NhanVien {
-    private int maNV;
+    private int idNV;
     private String tenNV;
     private String taiKhoan;
     private String password;
     private String SDT;
     private String chucVu;
 
-    public NhanVien(int maNV, String tenNV, String taiKhoan, String password, String SDT, String chucVu) {
-        this.maNV = maNV;
+    public NhanVien(int idNV, String tenNV, String taiKhoan, String password, String SDT, String chucVu) {
+        this.idNV = idNV;
         this.tenNV = tenNV;
         this.taiKhoan = taiKhoan;
         this.password = password;
@@ -20,12 +20,12 @@ public class NhanVien {
     public NhanVien() {
     }
 
-    public int getMaNV() {
-        return maNV;
+    public int getIdNV() {
+        return idNV;
     }
 
-    public void setMaNV(int maNV) {
-        this.maNV = maNV;
+    public void setIdNV(int idNV) {
+        this.idNV = idNV;
     }
 
     public String getTenNV() {

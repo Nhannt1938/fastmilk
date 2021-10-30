@@ -1,17 +1,17 @@
 package com.example.fastmilk.models;
 
 public class DiemGiao {
-    private int maDiemGiao;
+    private int idDiemGiao;
     private String tenDiemGiao;
-    private int maKhuVuc;
+    private int idKhuVuc;
     private String diaChi;
     private String tenKhuVuc;
     private String trangThai;
 
-    public DiemGiao(int maDiemGiao, String tenDiemGiao, int maKhuVuc, String diaChi, String tenKhuVuc, String trangThai) {
-        this.maDiemGiao = maDiemGiao;
+    public DiemGiao(int idDiemGiao, String tenDiemGiao, int idKhuVuc, String diaChi, String tenKhuVuc, String trangThai) {
+        this.idDiemGiao = idDiemGiao;
         this.tenDiemGiao = tenDiemGiao;
-        this.maKhuVuc = maKhuVuc;
+        this.idKhuVuc = idKhuVuc;
         this.diaChi = diaChi;
         this.tenKhuVuc = tenKhuVuc;
         this.trangThai = trangThai;
@@ -20,12 +20,12 @@ public class DiemGiao {
     public DiemGiao() {
     }
 
-    public int getMaDiemGiao() {
-        return maDiemGiao;
+    public int getIdDiemGiao() {
+        return idDiemGiao;
     }
 
-    public void setMaDiemGiao(int maDiemGiao) {
-        this.maDiemGiao = maDiemGiao;
+    public void setIdDiemGiao(int idDiemGiao) {
+        this.idDiemGiao = idDiemGiao;
     }
 
     public String getTenDiemGiao() {
@@ -36,12 +36,12 @@ public class DiemGiao {
         this.tenDiemGiao = tenDiemGiao;
     }
 
-    public int getMaKhuVuc() {
-        return maKhuVuc;
+    public int getIdKhuVuc() {
+        return idKhuVuc;
     }
 
-    public void setMaKhuVuc(int maKhuVuc) {
-        this.maKhuVuc = maKhuVuc;
+    public void setIdKhuVuc(int idKhuVuc) {
+        this.idKhuVuc = idKhuVuc;
     }
 
     public String getDiaChi() {

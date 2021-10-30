@@ -1,16 +1,16 @@
 package com.example.fastmilk.models;
 
 public class DonHangChiTiet {
-    private int maDHCT;
-    private int maDon;
-    private int maSP;
+    private int idDHCT;
+    private int idDon;
+    private int idSP;
     private int soLuong;
     private float donGia;
 
-    public DonHangChiTiet(int maDHCT, int maDon, int maSP, int soLuong, float donGia) {
-        this.maDHCT = maDHCT;
-        this.maDon = maDon;
-        this.maSP = maSP;
+    public DonHangChiTiet(int idDHCT, int idDon, int idSP, int soLuong, float donGia) {
+        this.idDHCT = idDHCT;
+        this.idDon = idDon;
+        this.idSP = idSP;
         this.soLuong = soLuong;
         this.donGia = donGia;
     }
@@ -18,28 +18,28 @@ public class DonHangChiTiet {
     public DonHangChiTiet() {
     }
 
-    public int getMaDHCT() {
-        return maDHCT;
+    public int getIdDHCT() {
+        return idDHCT;
     }
 
-    public void setMaDHCT(int maDHCT) {
-        this.maDHCT = maDHCT;
+    public void setIdDHCT(int idDHCT) {
+        this.idDHCT = idDHCT;
     }
 
-    public int getMaDon() {
-        return maDon;
+    public int getIdDon() {
+        return idDon;
     }
 
-    public void setMaDon(int maDon) {
-        this.maDon = maDon;
+    public void setIdDon(int idDon) {
+        this.idDon = idDon;
     }
 
-    public int getMaSP() {
-        return maSP;
+    public int getIdSP() {
+        return idSP;
     }
 
-    public void setMaSP(int maSP) {
-        this.maSP = maSP;
+    public void setIdSP(int idSP) {
+        this.idSP = idSP;
     }
 
     public int getSoLuong() {

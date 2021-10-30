@@ -62,6 +62,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
             android:src="@drawable/ping_map" />
+
         <TextView
 android:textAppearance="IBM Plex Sans"
             android:textColor="#203048"
