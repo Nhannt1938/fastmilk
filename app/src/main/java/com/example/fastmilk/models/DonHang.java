@@ -1,11 +1,13 @@
 package com.example.fastmilk.models;
 
+import java.util.Date;
+
 public class DonHang {
     private int idDon;
     private int idDiemGiao;
     private int idNV;
     private int idKhuVuc;
-    private int ngayTaoDon;
+    private Date ngayTaoDon;
     private String trangThai;
     private String tenNV;
     private float thanhTien;
@@ -13,7 +15,7 @@ public class DonHang {
     public DonHang() {
     }
 
-    public DonHang(int idDon, int idDiemGiao, int idNV, int idKhuVuc, int ngayTaoDon, String trangThai, String tenNV, float thanhTien) {
+    public DonHang(int idDon, int idDiemGiao, int idNV, int idKhuVuc, Date ngayTaoDon, String trangThai, String tenNV, float thanhTien) {
         this.idDon = idDon;
         this.idDiemGiao = idDiemGiao;
         this.idNV = idNV;
@@ -56,11 +58,11 @@ public class DonHang {
         this.idKhuVuc = idKhuVuc;
     }
 
-    public int getNgayTaoDon() {
+    public Date getNgayTaoDon() {
         return ngayTaoDon;
     }
 
-    public void setNgayTaoDon(int ngayTaoDon) {
+    public void setNgayTaoDon(Date ngayTaoDon) {
         this.ngayTaoDon = ngayTaoDon;
     }
 
