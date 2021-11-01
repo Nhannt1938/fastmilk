@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/drawable/trangthai_giaohang.xml" value="0.1935185185185185" />
+        <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/drawable/trangthai_giaohang_dangchogiaohang.xml" value="0.1935185185185185" />
         <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/activity_information.xml" value="0.209375" />
         <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/activity_maps_box.xml" value="0.209375" />
         <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
         <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/chitiet_donhang_fragment.xml" value="0.25" />
         <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/chitiet_donhang_item.xml" value="0.25" />
-        <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/danhsachdon_list.xml" value="0.15648148148148147" />
-        <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/danhsachdonitem.xml" value="0.15648148148148147" />
+        <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/danhsachdon_list.xml" value="0.33" />
+        <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/danhsachdonitem.xml" value="0.2" />
         <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/fragment_driver.xml" value="0.209375" />
         <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/lydothatbai.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/asus/Desktop/Sonic/fastmilk/app/src/main/res/layout/thogke_item.xml" value="0.15648148148148147" />

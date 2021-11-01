@@ -8,15 +8,14 @@ public class DonHang {
     private int idNV;
     private int idKhuVuc;
     private Date ngayTaoDon;
-    private String trangThai;
+    private int trangThai;
     private String tenNV;
     private float thanhTien;
 
     public DonHang() {
     }
 
-    public DonHang(int idDon, int idDiemGiao, int idNV, int idKhuVuc, Date ngayTaoDon, String trangThai, String tenNV, float thanhTien) {
-        this.idDon = idDon;
+    public DonHang(int idDiemGiao, int idNV, int idKhuVuc, Date ngayTaoDon, int trangThai, String tenNV, float thanhTien) {
         this.idDiemGiao = idDiemGiao;
         this.idNV = idNV;
         this.idKhuVuc = idKhuVuc;
@@ -66,11 +65,11 @@ public class DonHang {
         this.ngayTaoDon = ngayTaoDon;
     }
 
-    public String getTrangThai() {
+    public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 
