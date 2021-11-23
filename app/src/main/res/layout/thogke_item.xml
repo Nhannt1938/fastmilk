@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@+id/view_ds_1"
+        android:id="@+id/view_ds_1_detail"
         android:layout_width="match_parent"
         android:layout_height="40dp">
 
@@ -18,7 +18,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/Sodon"
+            android:id="@+id/Sodon_detail"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
@@ -29,7 +29,7 @@
 
         <TextView
 
-            android:id="@+id/Trangthai_ds"
+            android:id="@+id/Trangthai_ds_detail"
             android:layout_width="160dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
@@ -42,42 +42,45 @@
             android:textSize="20dp" />
     </RelativeLayout>
     <View
-        android:id="@+id/divide_line_1"
+        android:id="@+id/divide_line_1_detail"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/view_ds_1"
+        android:layout_below="@id/view_ds_1_detail"
         android:background="#E9EAED"
         android:layout_height="1dp"
         android:layout_width="380dp"/>
 
     <RelativeLayout
-        android:id="@+id/view_ds_2"
+        android:id="@+id/view_ds_2_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/divide_line_1"
+        android:layout_below="@id/divide_line_1_detail"
         android:layout_marginTop="10dp">
 
         <ImageView
-            android:id="@+id/img_Ping_map"
+            android:id="@+id/img_Ping_map_detail"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
             android:src="@drawable/ping_map" />
+s
+
         <TextView
-            android:textAppearance="IBM Plex Sans"
-            android:textColor="#203048"
-            android:layout_toRightOf="@id/img_Ping_map"
-            android:id="@+id/txt_Name_shop"
+            android:id="@+id/txt_Name_shop_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/img_Ping_map_detail"
+            android:fontFamily="@font/ibm_plex_sans"
             android:gravity="center_vertical"
             android:text="Tên Cửa Hàng"
+            android:textColor="#203048"
             android:textSize="20dp" />
+
         <TextView
-            android:layout_below="@id/txt_Name_shop"
-            android:layout_toRightOf="@id/img_Ping_map"
-            android:id="@+id/txt_Address_shop"
+            android:id="@+id/txt_Address_shop_detail"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
+            android:layout_below="@id/txt_Name_shop_detail"
+            android:layout_toRightOf="@id/img_Ping_map_detail"
             android:gravity="center_vertical"
             android:text="Địa chỉ Cửa Hàng"
             android:textSize="20dp" />

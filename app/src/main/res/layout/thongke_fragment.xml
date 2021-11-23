@@ -31,6 +31,7 @@
 
     </androidx.appcompat.widget.Toolbar>
 <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/List_View_thongke"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     tools:listitem="@layout/thogke_item"

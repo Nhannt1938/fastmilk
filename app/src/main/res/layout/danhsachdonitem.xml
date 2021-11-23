@@ -18,7 +18,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/Sodon"
+            android:id="@+id/Sodon_list"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
@@ -70,15 +70,16 @@
             android:layout_toRightOf="@id/img_Ping_map"
             android:gravity="center_vertical"
             android:text="Tên Cửa Hàng"
-            android:textAppearance="IBM Plex Sans"
+            android:fontFamily="@font/ibm_plex_sans"
             android:textColor="#203048"
             android:textSize="20dp" />
+
         <TextView
-            android:layout_below="@id/txt_Name_shop"
-            android:layout_toRightOf="@id/img_Ping_map"
             android:id="@+id/txt_Address_shop"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
+            android:layout_below="@id/txt_Name_shop"
+            android:layout_toRightOf="@id/img_Ping_map"
             android:gravity="center_vertical"
             android:text="Địa chỉ Cửa Hàng"
             android:textSize="20dp" />
@@ -123,7 +124,7 @@
             android:layout_toRightOf="@id/img_icon_xulydonhang"
             android:gravity="center_vertical"
             android:text="Xử lý đơn hàng"
-            android:textAppearance="IBM Plex Sans"
+            android:fontFamily="@font/ibm_plex_sans"
             android:textColor="#006DBA"
             android:textSize="20dp"
             android:textStyle="bold" />

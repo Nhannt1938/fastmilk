@@ -15,6 +15,17 @@ public class DonHang {
     public DonHang() {
     }
 
+    public DonHang(int idDon, int idDiemGiao, int idNV, int idKhuVuc, Date ngayTaoDon, int trangThai, String tenNV, float thanhTien) {
+        this.idDon = idDon;
+        this.idDiemGiao = idDiemGiao;
+        this.idNV = idNV;
+        this.idKhuVuc = idKhuVuc;
+        this.ngayTaoDon = ngayTaoDon;
+        this.trangThai = trangThai;
+        this.tenNV = tenNV;
+        this.thanhTien = thanhTien;
+    }
+
     public DonHang(int idDiemGiao, int idNV, int idKhuVuc, Date ngayTaoDon, int trangThai, String tenNV, float thanhTien) {
         this.idDiemGiao = idDiemGiao;
         this.idNV = idNV;

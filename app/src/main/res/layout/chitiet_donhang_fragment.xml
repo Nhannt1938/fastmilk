@@ -16,7 +16,7 @@
         android:layout_alignParentRight="true"
         >
         <ImageView
-            android:id="@+id/Btn_cancel_ds"
+            android:id="@+id/Btn_cancel_ds_item"
             android:src="@drawable/ic_baseline_clear_24"
             android:layout_width="30dp"
             android:layout_height="30dp"/>
@@ -115,7 +115,7 @@
     </LinearLayout>
     <TextView
         android:textFontWeight="600"
-        android:textAppearance="IBM Plex Sans"
+        android:fontFamily="@font/ibm_plex_sans"
         android:textSize="14dp"
         android:layout_marginTop="20dp"
         android:text="THANH TOÁN"
@@ -138,7 +138,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="28.62dp"
                     android:textFontWeight="600"
-                android:textAppearance="IBM Plex Sans"
+                android:fontFamily="@font/ibm_plex_sans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -149,7 +149,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="28.62dp"
                 android:textFontWeight="600"
-                android:textAppearance="IBM Plex Sans"
+                android:fontFamily="@font/ibm_plex_sans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -165,7 +165,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="28.62dp"
                 android:textFontWeight="600"
-                android:textAppearance="IBM Plex Sans"
+                android:fontFamily="@font/ibm_plex_sans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -176,7 +176,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="28.62dp"
                 android:textFontWeight="600"
-                android:textAppearance="IBM Plex Sans"
+                android:fontFamily="@font/ibm_plex_sans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -192,7 +192,7 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="28.62dp"
                 android:textFontWeight="600"
-                android:textAppearance="IBM Plex Sans"
+                android:fontFamily="@font/ibm_plex_sans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -203,7 +203,7 @@
                 android:textSize="16dp"
                 android:layout_marginLeft="28.62dp"
                 android:textFontWeight="600"
-                android:textAppearance="IBM Plex Sans"
+                android:fontFamily="@font/ibm_plex_sans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -214,14 +214,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/Delivery_Fail"
       android:layout_weight="1"
         app:backgroundTint="#FFF"
-        android:text="Thanh Toán"
+        android:text="Thất Bại"
         android:layout_marginRight="10dp"
         android:textColor="#D73200"
         android:layout_width="match_parent"
         android:layout_height="48dp"/>
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/Delivery_Success"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             app:backgroundTint="@color/giaohangthanhcong"
