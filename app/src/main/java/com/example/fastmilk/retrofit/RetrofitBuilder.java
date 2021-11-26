@@ -42,5 +42,20 @@ public class RetrofitBuilder {
 
      */
 
+    private static String BASE_URL = "http://192.168.1.15/duAnTN/";
+    private static Retrofit retrofit;
+    private static Gson gson;
+
+    public static Retrofit getClinet(){
+        if (retrofit == null){
+
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .client(new OkHttpClient.Builder().build())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
+    }
 
 }

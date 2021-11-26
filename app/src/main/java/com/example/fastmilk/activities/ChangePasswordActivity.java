@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -24,27 +23,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class InformationActivity extends AppCompatActivity {
+public class ChangePasswordActivity extends AppCompatActivity {
 
-    private EditText et_Hoten, et_SDT, et_Chucvu;
-    private TextInputLayout textInput_Hoten, textInput_SDT, textInput_Chucvu;
+    private EditText et_MKCu,et_MKMoi,et_XacNhanMK;
+    private TextInputLayout textInput_MKCu,textInput_MKMoi,textInput_XacNhanMK;
     private Button btn_Luu;
     private NhanVien mNhanVien = new NhanVien();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_information);
+        setContentView(R.layout.activity_change_password);
 
-        et_Hoten = (EditText) findViewById(R.id.et_Hoten);
-        et_SDT = (EditText) findViewById(R.id.et_SDT);
-        et_Chucvu = (EditText) findViewById(R.id.et_Chucvu);
-        textInput_Hoten = (TextInputLayout) findViewById(R.id.textInput_Hoten);
-        textInput_SDT = (TextInputLayout) findViewById(R.id.textInput_SDT);
-        textInput_Chucvu = (TextInputLayout) findViewById(R.id.textInput_Chucvu);
-        btn_Luu = (Button) findViewById(R.id.btn_Luu);
+        et_MKCu = (EditText) findViewById(R.id.etMKCu_DoiMK);
+        et_MKMoi = (EditText) findViewById(R.id.etMKMoi_DoiMK);
+        et_XacNhanMK = (EditText) findViewById(R.id.etXacNhan_DoiMK);
+        textInput_MKCu = (TextInputLayout) findViewById(R.id.textInputMKCu_DoiMK);
+        textInput_MKMoi = (TextInputLayout) findViewById(R.id.textInputMKMoi_DoiMK);
+        textInput_XacNhanMK = (TextInputLayout) findViewById(R.id.textInputXacNhan_DoiMK);
+        btn_Luu = (Button) findViewById(R.id.btnLuu_DoiMK);
 
-        textInput_Hoten.getEditText().addTextChangedListener(new TextWatcher() {
+        textInput_MKCu.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -53,10 +52,10 @@ public class InformationActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.length()==0){
-                    textInput_Hoten.setError("Không được để trống");
-                    textInput_Hoten.setErrorEnabled(true);
+                    textInput_MKCu.setError("Không được để trống");
+                    textInput_MKCu.setErrorEnabled(true);
                 } else {
-                    textInput_Hoten.setErrorEnabled(false);
+                    textInput_MKCu.setErrorEnabled(false);
                 }
             }
 
@@ -66,7 +65,7 @@ public class InformationActivity extends AppCompatActivity {
             }
         });
 
-        textInput_SDT.getEditText().addTextChangedListener(new TextWatcher() {
+        textInput_MKMoi.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -75,10 +74,10 @@ public class InformationActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.length()==0){
-                    textInput_SDT.setError("Không được để trống");
-                    textInput_SDT.setErrorEnabled(true);
+                    textInput_MKMoi.setError("Không được để trống");
+                    textInput_MKMoi.setErrorEnabled(true);
                 } else {
-                    textInput_SDT.setErrorEnabled(false);
+                    textInput_MKMoi.setErrorEnabled(false);
                 }
             }
 
@@ -88,7 +87,7 @@ public class InformationActivity extends AppCompatActivity {
             }
         });
 
-        textInput_Chucvu.getEditText().addTextChangedListener(new TextWatcher() {
+        textInput_XacNhanMK.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -96,11 +95,11 @@ public class InformationActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length()==0){
-                    textInput_Chucvu.setError("Không được để trống");
-                    textInput_Chucvu.setErrorEnabled(true);
+                if(et_XacNhanMK.getText().toString().equals(et_MKMoi.getText().toString())==false){
+                    textInput_XacNhanMK.setError("Xác nhận chưa chính xác");
+                    textInput_XacNhanMK.setErrorEnabled(true);
                 } else {
-                    textInput_Chucvu.setErrorEnabled(false);
+                    textInput_XacNhanMK.setErrorEnabled(false);
                 }
             }
 
@@ -110,20 +109,23 @@ public class InformationActivity extends AppCompatActivity {
             }
         });
 
-        mNhanVien = restore();
-        et_Hoten.setText(mNhanVien.getTenNV());
-        et_SDT.setText(mNhanVien.getSDT());
-        et_Chucvu.setText(mNhanVien.getChucVu());
         btn_Luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty("") && !TextUtils.isEmpty("")){
-                    Toast.makeText(InformationActivity.this,"Không được để trống",Toast.LENGTH_SHORT).show();
+                if(et_MKCu.getText().toString().equals("")||et_MKMoi.getText().toString().equals("")||et_XacNhanMK.getText().toString().equals("")) {
+                    Toast.makeText(ChangePasswordActivity.this,"Không được để trống",Toast.LENGTH_SHORT).show();
+                } else if(!et_XacNhanMK.getText().toString().equals(et_MKMoi.getText().toString())){
+                    Toast.makeText(ChangePasswordActivity.this,"Xác nhận mật khẩu chưa chính xác",Toast.LENGTH_SHORT).show();
                 } else {
-                    save();
                     mNhanVien = restore();
-                    update();
-                    finish();
+                    if(!et_MKCu.getText().toString().equals(mNhanVien.getMatKhau())){
+                        Toast.makeText(ChangePasswordActivity.this,"Mật khẩu cũ chưa chính xác",Toast.LENGTH_SHORT).show();
+                    } else {
+                        save();
+                        mNhanVien = restore();
+                        update();
+                        finish();
+                    }
                 }
             }
         });
@@ -132,23 +134,23 @@ public class InformationActivity extends AppCompatActivity {
     private void update() {
         MainActivity.pDialog.show();
         int idNV = mNhanVien.getIdNV();
-        String tenNV = et_Hoten.getText().toString().trim();
-        String SDT = et_SDT.getText().toString().trim();
-        String chucVu = et_Chucvu.getText().toString().trim();
-        String matKhau = mNhanVien.getMatKhau();
+        String tenNV = mNhanVien.getTenNV();
+        String SDT = mNhanVien.getSDT();
+        String chucVu = mNhanVien.getChucVu();
+        String matKhau = et_MKMoi.getText().toString().trim();
 
-        IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
-        Call<Message> call = iRetrofitService.update(idNV, tenNV, matKhau, SDT, chucVu);
+        IRetrofitService apiService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
+        Call<Message> call = apiService.update(idNV, tenNV, matKhau, SDT, chucVu);
         call.enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
-                Toast.makeText(InformationActivity.this, ""+response.body().getThongbao(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangePasswordActivity.this, ""+response.body().getThongbao(), Toast.LENGTH_SHORT).show();
                 MainActivity.pDialog.dismiss();
             }
 
             @Override
             public void onFailure(Call<Message> call, Throwable t) {
-                Toast.makeText(InformationActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangePasswordActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                 MainActivity.pDialog.dismiss();
             }
         });
@@ -157,9 +159,7 @@ public class InformationActivity extends AppCompatActivity {
     private void save() {
         SharedPreferences sharedPreferences = getSharedPreferences("NV_active.txt", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("tenNV", et_Hoten.getText().toString());
-        editor.putString("SDT", et_SDT.getText().toString());
-        editor.putString("chucVu", et_Chucvu.getText().toString());
+        editor.putString("matKhau", et_MKMoi.getText().toString());
         editor.commit();
     }
 

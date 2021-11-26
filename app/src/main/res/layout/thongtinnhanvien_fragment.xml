@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.DriverFragment"
+    tools:context=".Fragment.NhanVienFragment"
     android:orientation="vertical">
 
     <ScrollView
@@ -100,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -116,7 +117,7 @@
                         android:textStyle="bold"
                         android:layout_weight="1"/>
                     <TextView
-                        android:id="@+id/tvUpdate_HV"
+                        android:id="@+id/tv_Thaydoi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Thay đổi"
@@ -125,47 +126,36 @@
                         android:gravity="right"/>
                 </LinearLayout>
                 <TextView
-                    android:id="@+id/tvTenDR"
+                    android:id="@+id/tv_TenNV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="\tTen Driver"
+                    android:hint="\tTen Nhan Vien"
                     android:drawableLeft="@drawable/ic_person"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
                 <TextView
-                    android:id="@+id/tvChucvu"
+                    android:id="@+id/tv_Chucvu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="\tChucvu"
+                    android:hint="\tChuc vu"
                     android:drawableLeft="@drawable/ic_chucvu"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
                 <TextView
-                    android:id="@+id/tvDiaChi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="\tQuận 9, TP HCM"
-                    android:drawableLeft="@drawable/ic_locate"
-                    android:textColor="@color/black"
-                    android:textSize="16dp" />
-                <TextView
-                    android:id="@+id/tvSDT"
+                    android:id="@+id/tv_SDT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:text="\t0983841301"
+                    android:hint="\t0983841301"
                     android:drawableLeft="@drawable/ic_phone"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
@@ -177,7 +167,7 @@
                 android:background="@color/purple_200"/>
 
             <TextView
-                android:id="@+id/tvChange_MatKhau"
+                android:id="@+id/tv_DoiMK"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
@@ -194,11 +184,28 @@
                 android:background="@color/purple_200"/>
 
             <TextView
-                android:id="@+id/tvDangXuat"
+                android:id="@+id/tv_DangXuat"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:text="\tĐăng xuất"
+                android:drawableLeft="@drawable/ic_out"
+                android:drawableRight="@drawable/ic_next"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:gravity="center_vertical"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:background="@color/purple_200"/>
+
+            <TextView
+                android:id="@+id/tv_Thoat"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:text="\tThoát"
                 android:drawableLeft="@drawable/ic_out"
                 android:drawableRight="@drawable/ic_next"
                 android:textColor="@color/black"

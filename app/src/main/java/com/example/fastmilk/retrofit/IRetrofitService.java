@@ -2,11 +2,16 @@ package com.example.fastmilk.retrofit;
 
 
 
+import com.example.fastmilk.models.Message;
+import com.example.fastmilk.models.NhanVien;
+
 import java.util.List;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -39,4 +44,19 @@ public interface IRetrofitService {
     Call<ResponseModel> update(@Body Product product);
 
      */
+
+    @FormUrlEncoded
+    @POST("login.php")
+    Call<NhanVien> login(@Field("taiKhoan") String taiKhoan,
+                         @Field("matKhau") String matKhau
+    );
+
+    @FormUrlEncoded
+    @POST("update.php")
+    Call<Message> update(@Field("idNV") int idNV,
+                         @Field("tenNV") String tenNV,
+                         @Field("matKhau") String matKhau,
+                         @Field("SDT") String SDT,
+                         @Field("chucVu") String chucVu
+    );
 }
