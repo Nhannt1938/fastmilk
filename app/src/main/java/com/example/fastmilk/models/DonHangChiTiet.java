@@ -4,18 +4,28 @@ public class DonHangChiTiet {
     private int idDHCT;
     private int idDon;
     private int idSP;
+    private String tenSP;
     private int soLuong;
     private float donGia;
 
-    public DonHangChiTiet(int idDHCT, int idDon, int idSP, int soLuong, float donGia) {
+    public DonHangChiTiet(int idDHCT, int idDon, int idSP, String tenSP, int soLuong, float donGia) {
         this.idDHCT = idDHCT;
         this.idDon = idDon;
         this.idSP = idSP;
+        this.tenSP = tenSP;
         this.soLuong = soLuong;
         this.donGia = donGia;
     }
 
     public DonHangChiTiet() {
+    }
+
+    public String getTenSP() {
+        return tenSP;
+    }
+
+    public void setTenSP(String tenSP) {
+        this.tenSP = tenSP;
     }
 
     public int getIdDHCT() {

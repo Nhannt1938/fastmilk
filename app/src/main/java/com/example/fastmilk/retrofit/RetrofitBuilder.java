@@ -42,7 +42,8 @@ public class RetrofitBuilder {
 
      */
 
-    private static String BASE_URL = "http://192.168.1.15/duAnTN/";
+  //  private static String BASE_URL = "http://192.168.1.15/duAnTN/";
+    private static String BASE_URL = "http://10.0.2.2:8081/";
     private static Retrofit retrofit;
     private static Gson gson;
 

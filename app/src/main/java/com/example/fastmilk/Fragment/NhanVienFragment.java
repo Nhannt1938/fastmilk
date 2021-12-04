@@ -142,7 +142,7 @@ public class NhanVienFragment extends Fragment {
         editor.putInt("idNV",-1);
         editor.putString("tenNV", "");
         editor.putString("taiKhoan", "");
-        editor.putString("matKhau", "");
+        editor.putString("password", "");
         editor.putString("SDT", "");
         editor.putString("chucVu", "");
         editor.putBoolean("ghiNho", false);
@@ -154,7 +154,7 @@ public class NhanVienFragment extends Fragment {
         mNhanVien.setIdNV(sharedPreferences.getInt("idNV", -1));
         mNhanVien.setTenNV(sharedPreferences.getString("tenNV", ""));
         mNhanVien.setTaiKhoan(sharedPreferences.getString("taiKhoan", ""));
-        mNhanVien.setMatKhau(sharedPreferences.getString("matKhau", ""));
+        mNhanVien.setPassword(sharedPreferences.getString("password", ""));
         mNhanVien.setSDT(sharedPreferences.getString("SDT", ""));
         mNhanVien.setChucVu(sharedPreferences.getString("chucVu", ""));
         return mNhanVien;

@@ -10,6 +10,10 @@ public class DiemGiao {
     private String tenKhuVuc;
     private String trangThai;
 
+    public DiemGiao(int idDiemGiao) {
+        this.idDiemGiao = idDiemGiao;
+    }
+
     public DiemGiao(int idDiemGiao, String tenDiemGiao, int idKhuVuc, float longitude, float latitude, String diaChi, String tenKhuVuc, String trangThai) {
         this.idDiemGiao = idDiemGiao;
         this.tenDiemGiao = tenDiemGiao;

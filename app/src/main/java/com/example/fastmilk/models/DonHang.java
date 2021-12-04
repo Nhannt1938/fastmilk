@@ -1,46 +1,36 @@
 package com.example.fastmilk.models;
 
-import java.util.Date;
 
 public class DonHang {
-    private int idDon;
+    private String idDon;
     private int idDiemGiao;
     private int idNV;
-    private int idKhuVuc;
-    private Date ngayTaoDon;
+    private String tenDiemGiao;
+    private String diaChi;
     private int trangThai;
-    private String tenNV;
     private float thanhTien;
 
     public DonHang() {
     }
 
-    public DonHang(int idDon, int idDiemGiao, int idNV, int idKhuVuc, Date ngayTaoDon, int trangThai, String tenNV, float thanhTien) {
+    public DonHang(String idDon) {
+        this.idDon = idDon;
+    }
+
+    public DonHang(String idDon, int idDiemGiao, int idNV, String tenDiemGiao, String diaChi, int trangThai) {
         this.idDon = idDon;
         this.idDiemGiao = idDiemGiao;
         this.idNV = idNV;
-        this.idKhuVuc = idKhuVuc;
-        this.ngayTaoDon = ngayTaoDon;
+        this.tenDiemGiao = tenDiemGiao;
+        this.diaChi = diaChi;
         this.trangThai = trangThai;
-        this.tenNV = tenNV;
-        this.thanhTien = thanhTien;
     }
 
-    public DonHang(int idDiemGiao, int idNV, int idKhuVuc, Date ngayTaoDon, int trangThai, String tenNV, float thanhTien) {
-        this.idDiemGiao = idDiemGiao;
-        this.idNV = idNV;
-        this.idKhuVuc = idKhuVuc;
-        this.ngayTaoDon = ngayTaoDon;
-        this.trangThai = trangThai;
-        this.tenNV = tenNV;
-        this.thanhTien = thanhTien;
-    }
-
-    public int getIdDon() {
+    public String getIdDon() {
         return idDon;
     }
 
-    public void setIdDon(int idDon) {
+    public void setIdDon(String idDon) {
         this.idDon = idDon;
     }
 
@@ -60,20 +50,20 @@ public class DonHang {
         this.idNV = idNV;
     }
 
-    public int getIdKhuVuc() {
-        return idKhuVuc;
+    public String getTenDiemGiao() {
+        return tenDiemGiao;
     }
 
-    public void setIdKhuVuc(int idKhuVuc) {
-        this.idKhuVuc = idKhuVuc;
+    public void setTenDiemGiao(String tenDiemGiao) {
+        this.tenDiemGiao = tenDiemGiao;
     }
 
-    public Date getNgayTaoDon() {
-        return ngayTaoDon;
+    public String getDiaChi() {
+        return diaChi;
     }
 
-    public void setNgayTaoDon(Date ngayTaoDon) {
-        this.ngayTaoDon = ngayTaoDon;
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
     }
 
     public int getTrangThai() {
@@ -82,14 +72,6 @@ public class DonHang {
 
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
-    }
-
-    public String getTenNV() {
-        return tenNV;
-    }
-
-    public void setTenNV(String tenNV) {
-        this.tenNV = tenNV;
     }
 
     public float getThanhTien() {

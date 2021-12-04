@@ -118,7 +118,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     Toast.makeText(ChangePasswordActivity.this,"Xác nhận mật khẩu chưa chính xác",Toast.LENGTH_SHORT).show();
                 } else {
                     mNhanVien = restore();
-                    if(!et_MKCu.getText().toString().equals(mNhanVien.getMatKhau())){
+                    if(!et_MKCu.getText().toString().equals(mNhanVien.getPassword())){
                         Toast.makeText(ChangePasswordActivity.this,"Mật khẩu cũ chưa chính xác",Toast.LENGTH_SHORT).show();
                     } else {
                         save();
@@ -168,7 +168,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         mNhanVien.setIdNV(sharedPreferences.getInt("idNV", -1));
         mNhanVien.setTenNV(sharedPreferences.getString("tenNV", ""));
         mNhanVien.setTaiKhoan(sharedPreferences.getString("taiKhoan", ""));
-        mNhanVien.setMatKhau(sharedPreferences.getString("matKhau", ""));
+        mNhanVien.setPassword(sharedPreferences.getString("password", ""));
         mNhanVien.setSDT(sharedPreferences.getString("SDT", ""));
         mNhanVien.setChucVu(sharedPreferences.getString("chucVu", ""));
         return mNhanVien;

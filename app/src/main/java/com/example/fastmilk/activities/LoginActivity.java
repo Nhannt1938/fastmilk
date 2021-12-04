@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnDangNhap;
     private NhanVien mNhanVien = new NhanVien();
     public static ProgressDialog pDialog;
+    public static int idNV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +83,11 @@ public class LoginActivity extends AppCompatActivity {
             mNhanVien.setIdNV(sharedPreferences.getInt("idNV", -1));
             mNhanVien.setTenNV(sharedPreferences.getString("tenNV", ""));
             mNhanVien.setTaiKhoan(sharedPreferences.getString("taiKhoan", ""));
-            mNhanVien.setMatKhau(sharedPreferences.getString("matKhau", ""));
+            mNhanVien.setPassword(sharedPreferences.getString("password", ""));
             mNhanVien.setSDT(sharedPreferences.getString("SDT", ""));
             mNhanVien.setChucVu(sharedPreferences.getString("chucVu", ""));
             etTaiKhoan.setText(mNhanVien.getTaiKhoan());
-            etMatKhau.setText(mNhanVien.getMatKhau());
+            etMatKhau.setText(mNhanVien.getPassword());
             checkboxGhiNho.setChecked(check);
             loginU();
         }
@@ -97,21 +98,20 @@ public class LoginActivity extends AppCompatActivity {
         pDialog.show();
         String username = etTaiKhoan.getText().toString().trim();
         String password = etMatKhau.getText().toString().trim();
+        NhanVien nv=new NhanVien(username,password);
         IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
-        Call<NhanVien> call = iRetrofitService.login(username, password);
+        Call<NhanVien> call = iRetrofitService.login(nv);
         call.enqueue(new Callback<NhanVien>() {
             @Override
             public void onResponse(Call<NhanVien> call, Response<NhanVien> response) {
-                if (response.body() == null){
-                    Toast.makeText(LoginActivity.this, "Sai TK or MK", Toast.LENGTH_SHORT).show();
-                    pDialog.dismiss();
-                } else {
+                if (response.body().getPassword().equals(password)){
                     mNhanVien.setIdNV(response.body().getIdNV());
                     mNhanVien.setTenNV(response.body().getTenNV().toString());
                     mNhanVien.setTaiKhoan(response.body().getTaiKhoan().toString());
-                    mNhanVien.setMatKhau(response.body().getMatKhau().toString());
+                    mNhanVien.setPassword(response.body().getPassword().toString());
                     mNhanVien.setChucVu(response.body().getChucVu().toString());
                     mNhanVien.setSDT(response.body().getSDT().toString());
+                    idNV=response.body().getIdNV();
 
                     save();
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
@@ -121,7 +121,12 @@ public class LoginActivity extends AppCompatActivity {
                     checkboxGhiNho.setChecked(false);
                     pDialog.dismiss();
                     Toast.makeText(LoginActivity.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Sai TK or MK", Toast.LENGTH_SHORT).show();
+                    pDialog.dismiss();
+
                 }
+                Log.d("TAG", "onResponse: "+response.body().getPassword());
             }
 
             @Override
@@ -140,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
         editor.putInt("idNV", mNhanVien.getIdNV());
         editor.putString("tenNV", mNhanVien.getTenNV());
         editor.putString("taiKhoan", mNhanVien.getTaiKhoan());
-        editor.putString("matKhau", mNhanVien.getMatKhau());
+        editor.putString("password", mNhanVien.getPassword());
         editor.putString("SDT", mNhanVien.getSDT());
         editor.putString("chucVu", mNhanVien.getChucVu());
         editor.putBoolean("ghiNho",check);

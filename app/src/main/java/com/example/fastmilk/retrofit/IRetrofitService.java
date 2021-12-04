@@ -2,9 +2,13 @@ package com.example.fastmilk.retrofit;
 
 
 
+import com.example.fastmilk.models.DiemGiao;
+import com.example.fastmilk.models.DonHang;
+import com.example.fastmilk.models.DonHangChiTiet;
 import com.example.fastmilk.models.Message;
 import com.example.fastmilk.models.NhanVien;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -45,11 +49,24 @@ public interface IRetrofitService {
 
      */
 
-    @FormUrlEncoded
-    @POST("login.php")
-    Call<NhanVien> login(@Field("taiKhoan") String taiKhoan,
-                         @Field("matKhau") String matKhau
-    );
+
+    @POST("views/nhan_vien_login.php")
+    Call<NhanVien> login(@Body NhanVien nv);
+
+    @POST("views/don_hang_get_all.php")
+    Call<List<DonHang>> getAll(@Body NhanVien nv);
+
+    @POST("views/don_hang_get_by_id.php")
+    Call<List<DonHangChiTiet>> getDonByID(@Body DonHang dh);
+
+    @POST("views/don_hang_update_TC.php")
+    Call<Message> updateTC(@Body DonHang dh);
+
+    @POST("views/don_hang_update_TB.php")
+    Call<Message> updateTB(@Body DonHang dh);
+
+    @POST("views/diem_giao_get_by_id.php")
+    Call<DiemGiao> getDiemGiao(@Body DiemGiao diemGiao);
 
     @FormUrlEncoded
     @POST("update.php")

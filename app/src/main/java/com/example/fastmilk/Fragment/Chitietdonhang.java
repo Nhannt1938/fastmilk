@@ -2,6 +2,7 @@ package com.example.fastmilk.Fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.fastmilk.Adapter.donhangapdapter;
 import com.example.fastmilk.DAO.DonhangDao;
 import com.example.fastmilk.R;
+import com.example.fastmilk.models.DonHang;
+import com.example.fastmilk.models.DonHangChiTiet;
+import com.example.fastmilk.retrofit.IRetrofitService;
+import com.example.fastmilk.retrofit.RetrofitBuilder;
 import com.google.android.material.button.MaterialButton;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.Inflater;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Chitietdonhang extends Fragment {
     ImageView img_out;
@@ -72,4 +84,37 @@ public class Chitietdonhang extends Fragment {
             }
         });
     }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
+
+        //từ danh sách đơn hàng lấy idDon qua nhét vào bên dưới rồi xóa comment đi.
+
+        //DonHang dh=new DonHang(idDon);
+        //iRetrofitService.getDonByID(dh).enqueue(getByID);
+    }
+
+    Callback<List<DonHangChiTiet>> getByID = new Callback<List<DonHangChiTiet>>() {
+        @Override
+        public void onResponse(Call<List<DonHangChiTiet>> call, Response<List<DonHangChiTiet>> response) {
+            if (response.isSuccessful()){
+                List<DonHangChiTiet> dhct=new ArrayList<>();
+                dhct=response.body();
+                // gọi adapter rồi nhét dhct vào bên dưới.
+
+
+            } else {
+                Log.i("Error: ", response.message());
+            }
+        }
+
+        @Override
+        public void onFailure(Call<List<DonHangChiTiet>> call, Throwable t) {
+            Log.i("Error: ", call.toString());
+        }
+    };
 }

@@ -17,7 +17,7 @@ import com.example.fastmilk.models.DonHang;
 import com.example.fastmilk.models.DonHangChiTiet;
 
 import java.util.ArrayList;
-
+/*
 public class Thongke_Adapter  extends RecyclerView.Adapter<Thongke_Adapter.Thongke_ViewHolder> {
 
     Context context;
@@ -86,4 +86,8 @@ public class Thongke_Adapter  extends RecyclerView.Adapter<Thongke_Adapter.Thong
 
         }
     }
+
+
 }
+
+ */

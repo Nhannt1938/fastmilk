@@ -135,7 +135,7 @@ public class InformationActivity extends AppCompatActivity {
         String tenNV = et_Hoten.getText().toString().trim();
         String SDT = et_SDT.getText().toString().trim();
         String chucVu = et_Chucvu.getText().toString().trim();
-        String matKhau = mNhanVien.getMatKhau();
+        String matKhau = mNhanVien.getPassword();
 
         IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
         Call<Message> call = iRetrofitService.update(idNV, tenNV, matKhau, SDT, chucVu);
@@ -168,7 +168,7 @@ public class InformationActivity extends AppCompatActivity {
         mNhanVien.setIdNV(sharedPreferences.getInt("idNV", -1));
         mNhanVien.setTenNV(sharedPreferences.getString("tenNV", ""));
         mNhanVien.setTaiKhoan(sharedPreferences.getString("taiKhoan", ""));
-        mNhanVien.setMatKhau(sharedPreferences.getString("matKhau", ""));
+        mNhanVien.setPassword(sharedPreferences.getString("password", ""));
         mNhanVien.setSDT(sharedPreferences.getString("SDT", ""));
         mNhanVien.setChucVu(sharedPreferences.getString("chucVu", ""));
         return mNhanVien;

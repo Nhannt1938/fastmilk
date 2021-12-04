@@ -4,15 +4,25 @@ public class NhanVien {
     private int idNV;
     private String tenNV;
     private String taiKhoan;
+    private String password;
     private String matKhau;
     private String SDT;
     private String chucVu;
 
-    public NhanVien(int idNV, String tenNV, String taiKhoan, String matKhau, String SDT, String chucVu) {
+    public NhanVien(int idNV) {
+        this.idNV = idNV;
+    }
+
+    public NhanVien(String taiKhoan, String password) {
+        this.taiKhoan = taiKhoan;
+        this.password = password;
+    }
+
+    public NhanVien(int idNV, String tenNV, String taiKhoan, String password, String SDT, String chucVu) {
         this.idNV = idNV;
         this.tenNV = tenNV;
         this.taiKhoan = taiKhoan;
-        this.matKhau = matKhau;
+        this.password = password;
         this.SDT = SDT;
         this.chucVu = chucVu;
     }
@@ -42,6 +52,14 @@ public class NhanVien {
 
     public void setTaiKhoan(String taiKhoan) {
         this.taiKhoan = taiKhoan;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getMatKhau() {

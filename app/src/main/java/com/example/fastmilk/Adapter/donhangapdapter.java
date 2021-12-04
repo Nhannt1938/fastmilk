@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +25,13 @@ import com.example.fastmilk.R;
 import com.example.fastmilk.models.DonHang;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class donhangapdapter extends RecyclerView.Adapter<donhangapdapter.donhangViewHolder> {
     Context context;
-    ArrayList<DonHang> list;
+    List<DonHang> list;
 
-public donhangapdapter(Context context, ArrayList<DonHang> list){
+public donhangapdapter(Context context, List<DonHang> list){
     this.context=context;
     this.list=list;
 }
@@ -39,6 +41,7 @@ public donhangapdapter(Context context, ArrayList<DonHang> list){
         LayoutInflater inflater =((Activity)context).getLayoutInflater();
         View view = inflater.inflate(R.layout.danhsachdonitem,parent,false);
         donhangViewHolder donhang = new donhangViewHolder(view);
+        Log.d("TAG", "onCreateViewHolder: "+list.size());
         return donhang;
     }
 
@@ -51,12 +54,13 @@ public donhangapdapter(Context context, ArrayList<DonHang> list){
 
     }
         for (int i =1;i<list.size();i++){
-            holder.sodon.setText(dem+"");
+            //holder.sodon.setText(dem+"");
 
         }
-//    holder.sodon.setText(donHang.getIdDiemGiao()+"");
-    holder.txt_name_shop.setText(donHang.getIdKhuVuc()+"");
-    holder.txt_address_shop.setText(donHang.getIdDiemGiao()+"");
+//    holder.sodon.setText(donHang.getIdDiemGiao()+"")
+        holder.sodon.setText(position+1+"");
+    holder.txt_name_shop.setText(donHang.getTenDiemGiao()+"");
+    holder.txt_address_shop.setText(donHang.getDiaChi()+"");
     holder.ds_View_3.setOnClickListener(new View.OnClickListener() {
 
 

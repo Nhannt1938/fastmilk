@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fastmilk.Adapter.Thongke_Adapter;
+//import com.example.fastmilk.Adapter.Thongke_Adapter;
 import com.example.fastmilk.Adapter.donhangapdapter;
 import com.example.fastmilk.DAO.DonhangDao;
 import com.example.fastmilk.R;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class ThongKeDonHang extends Fragment {
     ArrayList<DonHang> TK_List = new ArrayList<>();
     RecyclerView recyclerView;
-    Thongke_Adapter thongke_adapter;
+   // Thongke_Adapter thongke_adapter;
     DonhangDao donhangDao;
     DonHang donHang;
     TextView sodon;
@@ -46,7 +46,7 @@ public class ThongKeDonHang extends Fragment {
             TK_List.addAll(donhangDao.getALl_delivery()) ;
 //        }
 
-        thongke_adapter = new Thongke_Adapter(getContext(),TK_List);
-        recyclerView.setAdapter(thongke_adapter);
+        //thongke_adapter = new Thongke_Adapter(getContext(),TK_List);
+        //recyclerView.setAdapter(thongke_adapter);
     }
 }
