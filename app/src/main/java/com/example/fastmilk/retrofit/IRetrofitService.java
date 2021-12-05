@@ -68,6 +68,9 @@ public interface IRetrofitService {
     @POST("views/diem_giao_get_by_id.php")
     Call<DiemGiao> getDiemGiao(@Body DiemGiao diemGiao);
 
+    @POST("views/diem_giao_report.php")
+    Call<Message> postDiemGiao(@Body DiemGiao diemGiao);
+
     @FormUrlEncoded
     @POST("update.php")
     Call<Message> update(@Field("idNV") int idNV,
