@@ -16,7 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fastmilk.Adapter.Donhangchitiet_Adapter;
 import com.example.fastmilk.Adapter.donhangapdapter;
 import com.example.fastmilk.DAO.DonhangDao;
 import com.example.fastmilk.R;
@@ -38,6 +40,10 @@ public class Chitietdonhang extends Fragment {
     ImageView img_out;
     Button btn_fail,btn_success;
     DonhangDao donhangDao;
+    Donhangchitiet_Adapter donhangchitietAdapter;
+    RecyclerView recyclerView;
+    List<DonHangChiTiet> dh = new ArrayList<>();
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.chitiet_donhang_fragment,container,false);
@@ -67,6 +73,7 @@ public class Chitietdonhang extends Fragment {
         btn_fail=view.findViewById(R.id.Delivery_Fail);
         btn_success=view.findViewById(R.id.Delivery_Success);
         img_out=view.findViewById(R.id.Btn_cancel_ds_item);
+        recyclerView=view.findViewById(R.id.list_item_detail);
     }
 
     private void oppenChange_Trangthai() {
@@ -94,8 +101,9 @@ public class Chitietdonhang extends Fragment {
 
         //từ danh sách đơn hàng lấy idDon qua nhét vào bên dưới rồi xóa comment đi.
 
-        //DonHang dh=new DonHang(idDon);
-        //iRetrofitService.getDonByID(dh).enqueue(getByID);
+        DonHang dh=new DonHang();
+        dh.getIdDon();
+        iRetrofitService.getDonByID(dh).enqueue(getByID);
     }
 
     Callback<List<DonHangChiTiet>> getByID = new Callback<List<DonHangChiTiet>>() {
@@ -105,7 +113,8 @@ public class Chitietdonhang extends Fragment {
                 List<DonHangChiTiet> dhct=new ArrayList<>();
                 dhct=response.body();
                 // gọi adapter rồi nhét dhct vào bên dưới.
-
+                donhangchitietAdapter=new Donhangchitiet_Adapter(getContext(),dhct);
+                recyclerView.setAdapter(donhangchitietAdapter);
 
             } else {
                 Log.i("Error: ", response.message());

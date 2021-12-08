@@ -17,7 +17,7 @@ import com.example.fastmilk.models.DonHang;
 import com.example.fastmilk.models.DonHangChiTiet;
 
 import java.util.ArrayList;
-/*
+
 public class Thongke_Adapter  extends RecyclerView.Adapter<Thongke_Adapter.Thongke_ViewHolder> {
 
     Context context;
@@ -39,17 +39,14 @@ public class Thongke_Adapter  extends RecyclerView.Adapter<Thongke_Adapter.Thong
     @Override
     public void onBindViewHolder(@NonNull Thongke_ViewHolder holder, int position) {
         DonHang donHang =list.get(position);
-        int [] trangThai={-1,1};
-        for (int i=0;i< trangThai.length;i++){
 
-        }
         if (donHang.getTrangThai() == 1){
-            holder.txt_name_detail.setText(donHang.getIdKhuVuc()+"");
+            holder.txt_name_detail.setText(donHang.getTenDiemGiao()+"");
             holder.txt_address_detail.setText(donHang.getIdDiemGiao()+"");
             holder.trangthaids_detail.setText("Hoàn Thành");
             holder.trangthaids_detail.setBackgroundResource(R.drawable.trangthai_giaohang_hoanthanh);
         }else if(donHang.getTrangThai() == -1){
-            holder.txt_name_detail.setText(donHang.getIdKhuVuc()+"");
+            holder.txt_name_detail.setText(donHang.getTenDiemGiao()+"");
             holder.txt_address_detail.setText(donHang.getIdDiemGiao()+"");
             holder.trangthaids_detail.setText("Thất Bại");
             holder.trangthaids_detail.setBackgroundResource(R.drawable.trangthai_giaohang_thatbai);
@@ -90,4 +87,4 @@ public class Thongke_Adapter  extends RecyclerView.Adapter<Thongke_Adapter.Thong
 
 }
 
- */
+

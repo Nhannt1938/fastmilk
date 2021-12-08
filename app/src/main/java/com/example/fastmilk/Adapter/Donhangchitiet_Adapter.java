@@ -17,13 +17,14 @@ import com.example.fastmilk.models.DonHang;
 import com.example.fastmilk.models.DonHangChiTiet;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Donhangchitiet_Adapter extends RecyclerView.Adapter<Donhangchitiet_Adapter.Donhangchitiet_ViewHolder> {
 
     Context context;
-    ArrayList<DonHangChiTiet> list;
+    List<DonHangChiTiet> list;
 
-    public Donhangchitiet_Adapter(Context context, ArrayList<DonHangChiTiet> list){
+    public Donhangchitiet_Adapter(Context context, List<DonHangChiTiet> list){
         this.context=context;
         this.list=list;
     }
