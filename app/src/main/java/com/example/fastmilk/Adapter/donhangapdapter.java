@@ -48,15 +48,8 @@ public donhangapdapter(Context context, List<DonHang> list){
     @Override
     public void onBindViewHolder(@NonNull donhangapdapter.donhangViewHolder holder, int position) {
     DonHang donHang =list.get(position);
-        int  dem = 1;
-    for (int i =1;i<list.size();i++){
-        dem ++;
 
-    }
-        for (int i =1;i<list.size();i++){
-            //holder.sodon.setText(dem+"");
 
-        }
 //    holder.sodon.setText(donHang.getIdDiemGiao()+"")
         holder.sodon.setText(position+1+"");
     holder.txt_name_shop.setText(donHang.getTenDiemGiao()+"");
@@ -68,7 +61,7 @@ public donhangapdapter(Context context, List<DonHang> list){
         public void onClick(View v) {
             FragmentManager fragmentManager= ((AppCompatActivity)context).getSupportFragmentManager();
             FragmentTransaction fragment_donhangchitiet=fragmentManager.beginTransaction();
-            fragment_donhangchitiet.add(R.id.frameLayout, new Chitietdonhang()).commit();
+            fragment_donhangchitiet.replace(R.id.frameLayout, new Chitietdonhang()).commit();
 
 
         }

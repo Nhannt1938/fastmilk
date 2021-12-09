@@ -39,7 +39,7 @@ public class Thongke_Adapter  extends RecyclerView.Adapter<Thongke_Adapter.Thong
     @Override
     public void onBindViewHolder(@NonNull Thongke_ViewHolder holder, int position) {
         DonHang donHang =list.get(position);
-
+        holder.sodon.setText(position+1+"");
         if (donHang.getTrangThai() == 1){
             holder.txt_name_detail.setText(donHang.getTenDiemGiao()+"");
             holder.txt_address_detail.setText(donHang.getIdDiemGiao()+"");

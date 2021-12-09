@@ -49,23 +49,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
                 switch (item.getItemId()) {
-                    case R.id.menu_home:
-                        toolbar.setTitle("Home");
+                    case R.id.menu_donhang:
+                        toolbar.setTitle("Đơn Hàng");
                         fragment = new Danhsachdonhang();
                         loadFragment(fragment);
                         return true;
-                    case R.id.menu_donhang:
-                        toolbar.setTitle("Don hang");
-                        fragment = new Chitietdonhang();
-                        loadFragment(fragment);
-                        return true;
                     case R.id.menu_lichsuGH:
-                        toolbar.setTitle("Lich Su GH");
+                        toolbar.setTitle("Lịch sử");
                         fragment = new ThongKeDonHang();
                         loadFragment(fragment);
                         return true;
                     case R.id.menu_taikhoan:
-                        toolbar.setTitle("Nhan Vien");
+                        toolbar.setTitle("Tài khoản");
                         fragment = new NhanVienFragment();
                         loadFragment(fragment);
                         return true;
