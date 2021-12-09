@@ -62,8 +62,6 @@ public donhangapdapter(Context context, List<DonHang> list){
             FragmentManager fragmentManager= ((AppCompatActivity)context).getSupportFragmentManager();
             FragmentTransaction fragment_donhangchitiet=fragmentManager.beginTransaction();
             fragment_donhangchitiet.replace(R.id.frameLayout, new Chitietdonhang()).commit();
-
-
         }
     });
 

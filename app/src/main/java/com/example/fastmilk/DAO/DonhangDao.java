@@ -24,11 +24,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DonhangDao {
-Database_Test database_test;
+    Database_Test database_test;
     List<DonHang> dh = new ArrayList<>();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     public DonhangDao(Context context){
-database_test = new Database_Test(context);
+        database_test = new Database_Test(context);
     }
     public List<DonHang> getALl(int trangThai) throws InterruptedException {
 
@@ -101,7 +101,7 @@ cursor.moveToNext();
         return dh;
     }
     public void Change_trangthai(int trangthai){
-SQLiteDatabase database = database_test.getWritableDatabase();
+        SQLiteDatabase database = database_test.getWritableDatabase();
         ContentValues values =  new ContentValues();
         values.put("trangThai", trangthai);
         database.update("DonHang",values,"idDon=?",new String[] {trangthai+""});
