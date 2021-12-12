@@ -49,18 +49,23 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
                 switch (item.getItemId()) {
-                    case R.id.menu_donhang:
-                        toolbar.setTitle("Đơn Hàng");
+                    case R.id.menu_home:
+                        toolbar.setTitle("Home");
                         fragment = new Danhsachdonhang();
                         loadFragment(fragment);
                         return true;
+                    case R.id.menu_donhang:
+                        toolbar.setTitle("Don hang");
+                        fragment = new Chitietdonhang();
+                        loadFragment(fragment);
+                        return true;
                     case R.id.menu_lichsuGH:
-                        toolbar.setTitle("Lịch sử");
+                        toolbar.setTitle("Lich Su GH");
                         fragment = new ThongKeDonHang();
                         loadFragment(fragment);
                         return true;
                     case R.id.menu_taikhoan:
-                        toolbar.setTitle("Tài khoản");
+                        toolbar.setTitle("Nhan Vien");
                         fragment = new NhanVienFragment();
                         loadFragment(fragment);
                         return true;
@@ -69,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void loadFragment(Fragment fragment) {
         // load fragment

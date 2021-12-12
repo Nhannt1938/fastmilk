@@ -66,9 +66,9 @@ public class Chitietdonhang extends Fragment {
         btn_success.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                DonHang dh=new DonHang();
-//                IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
-//                iRetrofitService.updateTB(dh);
+                DonHang dh=new DonHang();
+                IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
+                iRetrofitService.updateTB(dh);
             }
         });
     }

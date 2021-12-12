@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Fast Milk</string>
     <string name="mapbox_access_token">pk.eyJ1IjoidHVhbnR1dHUyOTEyYSIsImEiOiJja3Y0b2NrZ2g0NHJoMm5xOTcxd3JiZ3BxIn0.HUszd5lus2jkm6Gt8cAgjQ</string>
+
 </resources>
