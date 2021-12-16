@@ -26,8 +26,8 @@ import retrofit2.Response;
 
 public class InformationActivity extends AppCompatActivity {
 
-    private EditText et_Hoten, et_SDT, et_Chucvu;
-    private TextInputLayout textInput_Hoten, textInput_SDT, textInput_Chucvu;
+    private EditText et_Hoten, et_SDT;
+    private TextInputLayout textInput_Hoten, textInput_SDT;
     private Button btn_Luu;
     private NhanVien mNhanVien = new NhanVien();
 
@@ -38,10 +38,8 @@ public class InformationActivity extends AppCompatActivity {
 
         et_Hoten = (EditText) findViewById(R.id.et_Hoten);
         et_SDT = (EditText) findViewById(R.id.et_SDT);
-        et_Chucvu = (EditText) findViewById(R.id.et_Chucvu);
         textInput_Hoten = (TextInputLayout) findViewById(R.id.textInput_Hoten);
         textInput_SDT = (TextInputLayout) findViewById(R.id.textInput_SDT);
-        textInput_Chucvu = (TextInputLayout) findViewById(R.id.textInput_Chucvu);
         btn_Luu = (Button) findViewById(R.id.btn_Luu);
 
         textInput_Hoten.getEditText().addTextChangedListener(new TextWatcher() {
@@ -88,32 +86,11 @@ public class InformationActivity extends AppCompatActivity {
             }
         });
 
-        textInput_Chucvu.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length()==0){
-                    textInput_Chucvu.setError("Không được để trống");
-                    textInput_Chucvu.setErrorEnabled(true);
-                } else {
-                    textInput_Chucvu.setErrorEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
 
         mNhanVien = restore();
         et_Hoten.setText(mNhanVien.getTenNV());
         et_SDT.setText(mNhanVien.getSDT());
-        et_Chucvu.setText(mNhanVien.getChucVu());
         btn_Luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,11 +111,11 @@ public class InformationActivity extends AppCompatActivity {
         int idNV = mNhanVien.getIdNV();
         String tenNV = et_Hoten.getText().toString().trim();
         String SDT = et_SDT.getText().toString().trim();
-        String chucVu = et_Chucvu.getText().toString().trim();
         String matKhau = mNhanVien.getPassword();
+        NhanVien nv=new NhanVien(idNV, tenNV, SDT);
 
         IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
-        Call<Message> call = iRetrofitService.update(idNV, tenNV, matKhau, SDT, chucVu);
+        Call<Message> call = iRetrofitService.nvUpdateInfo(nv);
         call.enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
@@ -159,7 +136,6 @@ public class InformationActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("tenNV", et_Hoten.getText().toString());
         editor.putString("SDT", et_SDT.getText().toString());
-        editor.putString("chucVu", et_Chucvu.getText().toString());
         editor.commit();
     }
 

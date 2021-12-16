@@ -16,14 +16,14 @@ import com.example.fastmilk.R;
 import com.example.fastmilk.models.DonHang;
 import com.example.fastmilk.models.DonHangChiTiet;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Thongke_Adapter  extends RecyclerView.Adapter<Thongke_Adapter.Thongke_ViewHolder> {
 
     Context context;
-    ArrayList<DonHang> list;
+    List<DonHang> list;
 
-    public  Thongke_Adapter(Context context, ArrayList<DonHang> list){
+    public  Thongke_Adapter(Context context, List<DonHang> list){
         this.context=context;
         this.list=list;
     }
@@ -42,12 +42,12 @@ public class Thongke_Adapter  extends RecyclerView.Adapter<Thongke_Adapter.Thong
         holder.sodon.setText(position+1+"");
         if (donHang.getTrangThai() == 1){
             holder.txt_name_detail.setText(donHang.getTenDiemGiao()+"");
-            holder.txt_address_detail.setText(donHang.getIdDiemGiao()+"");
+            holder.txt_address_detail.setText(donHang.getDiaChi()+"");
             holder.trangthaids_detail.setText("Hoàn Thành");
             holder.trangthaids_detail.setBackgroundResource(R.drawable.trangthai_giaohang_hoanthanh);
         }else if(donHang.getTrangThai() == -1){
             holder.txt_name_detail.setText(donHang.getTenDiemGiao()+"");
-            holder.txt_address_detail.setText(donHang.getIdDiemGiao()+"");
+            holder.txt_address_detail.setText(donHang.getDiaChi()+"");
             holder.trangthaids_detail.setText("Thất Bại");
             holder.trangthaids_detail.setBackgroundResource(R.drawable.trangthai_giaohang_thatbai);
         }

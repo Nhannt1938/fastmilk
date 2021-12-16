@@ -9,30 +9,29 @@
 
 
     <EditText
-        android:id="@+id/edtAddress"
+        android:layout_marginTop="150dp"
+        android:id="@+id/edtAddressDiemGiao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="nhap dia chi"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="Địa Chỉ Điểm Giao"
         />
 
 
     <EditText
+        android:id="@+id/etNameDiemGiao"
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="nhap Ten quan"
+        android:hint="Tên Điểm Giao"
         />
-    <TextView
-        android:id="@+id/tv_Lat"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        />
-    <TextView
-        android:id="@+id/tv_Lng"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+
 
     <Button
         android:id="@+id/btn_confirm"
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Confirm"/>

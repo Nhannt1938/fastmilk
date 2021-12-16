@@ -13,10 +13,15 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.fastmilk.R;
+import com.example.fastmilk.models.DiemGiao;
+import com.example.fastmilk.retrofit.IRetrofitService;
+import com.example.fastmilk.retrofit.RetrofitBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.Marker;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdate;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -32,6 +37,10 @@ import com.mapbox.mapboxsdk.maps.Style;
 import com.mapbox.mapboxsdk.maps.Style.OnStyleLoaded;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.mapbox.mapboxsdk.maps.Style.LIGHT;
 
@@ -49,15 +58,16 @@ public class MapboxActivity extends AppCompatActivity implements PermissionsList
 
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_mapbox);
-
         centerLocation = (FloatingActionButton) findViewById(R.id.centerLocation);
-
+        String idDiemGiao = String.valueOf(getIntent().getExtras().getInt("idDiemGiao"));
         // Initiation of the MapView
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
-
-
+        DiemGiao dg=new DiemGiao(Integer.parseInt(idDiemGiao));
+        Log.d("check map activity", "onCreate: "+dg.getIdDiemGiao());
+        IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
+        iRetrofitService.getDiemGiao(dg).enqueue(getDiemGiaoCB);
         centerLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +80,44 @@ public class MapboxActivity extends AppCompatActivity implements PermissionsList
             }
         });
     }
+
+    Callback<List<DiemGiao>> getDiemGiaoCB = new Callback<List<DiemGiao>>() {
+        @Override
+        public void onResponse(Call<List<DiemGiao>> call, Response<List<DiemGiao>> response) {
+            if (response.isSuccessful()){
+                LatLng xy=new LatLng();
+                xy.setLatitude(response.body().get(0).getLatitude());
+                xy.setLongitude(response.body().get(0).getLongitude());
+                Log.d("check tọa độ", "onResponse: "+xy.getLatitude()+ " "+xy.getLongitude()+"");
+                mapView.getMapAsync(new OnMapReadyCallback() {
+                    @Override
+                    public void onMapReady(@NonNull MapboxMap mapboxMap) {
+                        MarkerOptions option = new MarkerOptions();
+                        option.position(xy);
+                        option.title(response.body().get(0).getTenDiemGiao());
+                        mapboxMap.addMarker(option);
+                        CameraPosition cam=new CameraPosition.Builder().target(xy).zoom(12).build();
+                        mapboxMap.setCameraPosition(cam);
+                        mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam), 500);
+                        /*mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener() {
+                            @Override
+                            public boolean onMarkerClick(@NonNull Marker marker) {
+                                Log.d("test on map click", "onMarkerClick: "+marker.getTitle());
+                                return true;
+                            }
+                        });*/
+                    }
+                });
+            } else {
+                Log.i("Error: ", response.message());
+            }
+        }
+
+        @Override
+        public void onFailure(Call<List<DiemGiao>> call, Throwable t) {
+            Log.i("Error: ", call.toString());
+        }
+    };
 
     @Override
     public void onMapReady(@NonNull MapboxMap mapboxMap) {

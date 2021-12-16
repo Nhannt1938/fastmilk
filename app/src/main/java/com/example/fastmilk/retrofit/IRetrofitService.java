@@ -7,6 +7,7 @@ import com.example.fastmilk.models.DonHang;
 import com.example.fastmilk.models.DonHangChiTiet;
 import com.example.fastmilk.models.Message;
 import com.example.fastmilk.models.NhanVien;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,8 +54,20 @@ public interface IRetrofitService {
     @POST("views/nhan_vien_login.php")
     Call<NhanVien> login(@Body NhanVien nv);
 
+    @POST("views/nhan_vien_update_info.php")
+    Call<Message> nvUpdateInfo(@Body NhanVien nv);
+
+    @POST("views/nhan_vien_update_password.php")
+    Call<Message> nvUpdatePassword(@Body NhanVien nv);
+
     @POST("views/don_hang_get_all.php")
     Call<List<DonHang>> getAll(@Body NhanVien nv);
+
+    @POST("views/don_hang_get_lich_su.php")
+    Call<List<DonHang>> getAllLichSu(@Body NhanVien nv);
+
+    @POST("views/don_hang_get_all_diem_giao.php")
+    Call<List<LatLng>> getAllDG(@Body NhanVien nv);
 
     @POST("views/don_hang_get_by_id.php")
     Call<List<DonHangChiTiet>> getDonByID(@Body DonHang dh);
@@ -66,7 +79,7 @@ public interface IRetrofitService {
     Call<Message> updateTB(@Body DonHang dh);
 
     @POST("views/diem_giao_get_by_id.php")
-    Call<DiemGiao> getDiemGiao(@Body DiemGiao diemGiao);
+    Call<List<DiemGiao>> getDiemGiao(@Body DiemGiao diemGiao);
 
     @POST("views/diem_giao_report.php")
     Call<Message> postDiemGiao(@Body DiemGiao diemGiao);

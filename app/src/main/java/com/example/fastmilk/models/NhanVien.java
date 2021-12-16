@@ -9,8 +9,19 @@ public class NhanVien {
     private String SDT;
     private String chucVu;
 
+    public NhanVien(int idNV, String tenNV, String SDT) {
+        this.idNV = idNV;
+        this.tenNV = tenNV;
+        this.SDT = SDT;
+    }
+
     public NhanVien(int idNV) {
         this.idNV = idNV;
+    }
+
+    public NhanVien(int idNV, String password) {
+        this.idNV = idNV;
+        this.password = password;
     }
 
     public NhanVien(String taiKhoan, String password) {

@@ -139,8 +139,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
         String chucVu = mNhanVien.getChucVu();
         String matKhau = et_MKMoi.getText().toString().trim();
 
-        IRetrofitService apiService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
-        Call<Message> call = apiService.update(idNV, tenNV, matKhau, SDT, chucVu);
+        NhanVien nv=new NhanVien(idNV, matKhau);
+
+        IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
+        Call<Message> call = iRetrofitService.nvUpdatePassword(nv);
         call.enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {

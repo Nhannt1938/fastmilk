@@ -104,11 +104,12 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<NhanVien>() {
             @Override
             public void onResponse(Call<NhanVien> call, Response<NhanVien> response) {
-                if (response.body().getPassword().equals(password)){
+                if (response.body().getTaiKhoan().equals(username)){
                     mNhanVien.setIdNV(response.body().getIdNV());
                     mNhanVien.setTenNV(response.body().getTenNV().toString());
                     mNhanVien.setTaiKhoan(response.body().getTaiKhoan().toString());
-                    mNhanVien.setPassword(response.body().getPassword().toString());
+                    mNhanVien.setPassword(password);
+                    //mNhanVien.setPassword(response.body().getPassword().toString());
                     mNhanVien.setChucVu(response.body().getChucVu().toString());
                     mNhanVien.setSDT(response.body().getSDT().toString());
                     idNV=response.body().getIdNV();

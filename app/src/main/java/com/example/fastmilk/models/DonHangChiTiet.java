@@ -1,14 +1,17 @@
 package com.example.fastmilk.models;
 
 public class DonHangChiTiet {
-    private int idDHCT;
-    private int idDon;
+    private String idDHCT;
+    private String idDon;
     private int idSP;
     private String tenSP;
     private int soLuong;
     private float donGia;
 
-    public DonHangChiTiet(int idDHCT, int idDon, int idSP, String tenSP, int soLuong, float donGia) {
+    public DonHangChiTiet() {
+    }
+
+    public DonHangChiTiet(String idDHCT, String idDon, int idSP, String tenSP, int soLuong, float donGia) {
         this.idDHCT = idDHCT;
         this.idDon = idDon;
         this.idSP = idSP;
@@ -17,30 +20,19 @@ public class DonHangChiTiet {
         this.donGia = donGia;
     }
 
-    public DonHangChiTiet() {
-    }
-
-    public String getTenSP() {
-        return tenSP;
-    }
-
-    public void setTenSP(String tenSP) {
-        this.tenSP = tenSP;
-    }
-
-    public int getIdDHCT() {
+    public String getIdDHCT() {
         return idDHCT;
     }
 
-    public void setIdDHCT(int idDHCT) {
+    public void setIdDHCT(String idDHCT) {
         this.idDHCT = idDHCT;
     }
 
-    public int getIdDon() {
+    public String getIdDon() {
         return idDon;
     }
 
-    public void setIdDon(int idDon) {
+    public void setIdDon(String idDon) {
         this.idDon = idDon;
     }
 
@@ -50,6 +42,14 @@ public class DonHangChiTiet {
 
     public void setIdSP(int idSP) {
         this.idSP = idSP;
+    }
+
+    public String getTenSP() {
+        return tenSP;
+    }
+
+    public void setTenSP(String tenSP) {
+        this.tenSP = tenSP;
     }
 
     public int getSoLuong() {

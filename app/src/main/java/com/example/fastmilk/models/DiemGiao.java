@@ -7,13 +7,16 @@ public class DiemGiao {
     private float longitude;
     private float latitude;
     private String diaChi;
-    private String trangThai;
+    private int trangThai;
 
     public DiemGiao(int idDiemGiao) {
         this.idDiemGiao = idDiemGiao;
     }
 
-    public DiemGiao(int idDiemGiao, String tenDiemGiao, int idKhuVuc, float longitude, float latitude, String diaChi, String trangThai) {
+    public DiemGiao() {
+    }
+
+    public DiemGiao(int idDiemGiao, String tenDiemGiao, int idKhuVuc, float longitude, float latitude, String diaChi, int trangThai) {
         this.idDiemGiao = idDiemGiao;
         this.tenDiemGiao = tenDiemGiao;
         this.idKhuVuc = idKhuVuc;
@@ -21,9 +24,6 @@ public class DiemGiao {
         this.latitude = latitude;
         this.diaChi = diaChi;
         this.trangThai = trangThai;
-    }
-
-    public DiemGiao() {
     }
 
     public int getIdDiemGiao() {
@@ -74,12 +74,11 @@ public class DiemGiao {
         this.diaChi = diaChi;
     }
 
-
-    public String getTrangThai() {
+    public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
 }

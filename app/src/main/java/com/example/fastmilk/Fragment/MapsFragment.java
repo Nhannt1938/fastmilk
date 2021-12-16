@@ -23,14 +23,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.fastmilk.Adapter.donhangapdapter;
 import com.example.fastmilk.R;
 import com.example.fastmilk.activities.AddNewInformation;
+import com.example.fastmilk.activities.ChiTietDonHangActivity;
+import com.example.fastmilk.activities.LoginActivity;
+import com.example.fastmilk.models.DonHang;
+import com.example.fastmilk.models.NhanVien;
+import com.example.fastmilk.retrofit.IRetrofitService;
+import com.example.fastmilk.retrofit.RetrofitBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -48,9 +56,15 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MapsFragment extends Fragment implements PermissionsListener, OnMapReadyCallback {
     private MapView mapView;
     private MapboxMap mapboxMap;
+    private int id= LoginActivity.idNV;
+    NhanVien nv=new NhanVien(id);
     private List<LatLng> xy = new ArrayList<>();
     private LocationComponent locationComponent;
     private PermissionsManager permissionsManager;
@@ -82,43 +96,10 @@ public class MapsFragment extends Fragment implements PermissionsListener, OnMap
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-        mapView.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(@NonNull MapboxMap mapboxMap) {
-
-                xy.add(new LatLng(10.8929561,106.620667));
-                xy.add(new LatLng(10.8985278,106.624634));
-                xy.add(new LatLng(10.8918288,106.6308057));
-                xy.add(new LatLng(10.9001503,106.6267798));
-
-                MarkerOptions option = new MarkerOptions();
-
-                for (int i = 0; i < xy.size(); i++) {
-
-                    option.position( new LatLng(xy.get(i).getLatitude(),xy.get(i).getLongitude()));
-                    option.title("asd");
-                    mapboxMap.addMarker(option);
-                }
+        IRetrofitService iRetrofitService = RetrofitBuilder.getClinet().create(IRetrofitService.class);
+        iRetrofitService.getAllDG(nv).enqueue(getAllDGCB);
 
 
-/*
-                // nhap latitude va longitude vao duoi
-                MarkerOptions option1 = new MarkerOptions();
-                MarkerOptions option2 = new MarkerOptions();
-                MarkerOptions option3 = new MarkerOptions();
-                MarkerOptions option4 = new MarkerOptions();
-                option1.position( new LatLng(10.8929561,106.620667));
-                mapboxMap.addMarker(option1);
-                option2.position( new LatLng(10.8985278,106.624634));
-                mapboxMap.addMarker(option2);
-                option3.position( new LatLng(10.8918288,106.6308057));
-                mapboxMap.addMarker(option3);
-                option4.position( new LatLng(10.9001503,106.6267798));
-                mapboxMap.addMarker(option4);
-*/
-
-            }
-        });
 
         centerLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,6 +128,71 @@ public class MapsFragment extends Fragment implements PermissionsListener, OnMap
             }
         });
     }
+
+    Callback<List<LatLng>> getAllDGCB = new Callback<List<LatLng>>() {
+        @Override
+        public void onResponse(Call<List<LatLng>> call, Response<List<LatLng>> response) {
+            if (response.isSuccessful()){
+                xy=response.body();
+                mapView.getMapAsync(new OnMapReadyCallback() {
+                    @Override
+                    public void onMapReady(@NonNull MapboxMap mapboxMap) {
+
+                /*xy.add(new LatLng(10.8929561,106.620667));
+                xy.add(new LatLng(10.8985278,106.624634));
+                xy.add(new LatLng(10.8918288,106.6308057));
+                xy.add(new LatLng(10.9001503,106.6267798));*/
+
+                        MarkerOptions option = new MarkerOptions();
+
+                        for (int i = 0; i < xy.size(); i++) {
+
+                            option.position( new LatLng(xy.get(i).getLatitude(),xy.get(i).getLongitude()));
+                            //option.title("asd");
+                            mapboxMap.addMarker(option);
+
+                            /*mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener() {
+                                @Override
+                                public boolean onMarkerClick(@NonNull Marker marker) {
+                                    Log.d("test on map click", "onMarkerClick: "+marker.getId());
+                                    *//*Intent i=new Intent(getContext(), ChiTietDonHangActivity.class);
+                                    i.putExtra("idFromMap", marker.getId());
+                                    startActivity(i);*//*
+                                    return true;
+                                }
+                            });*/
+                        }
+
+
+/*
+                // nhap latitude va longitude vao duoi
+                MarkerOptions option1 = new MarkerOptions();
+                MarkerOptions option2 = new MarkerOptions();
+                MarkerOptions option3 = new MarkerOptions();
+                MarkerOptions option4 = new MarkerOptions();
+                option1.position( new LatLng(10.8929561,106.620667));
+                mapboxMap.addMarker(option1);
+                option2.position( new LatLng(10.8985278,106.624634));
+                mapboxMap.addMarker(option2);
+                option3.position( new LatLng(10.8918288,106.6308057));
+                mapboxMap.addMarker(option3);
+                option4.position( new LatLng(10.9001503,106.6267798));
+                mapboxMap.addMarker(option4);
+*/
+
+                    }
+                });
+            } else {
+                Log.i("Error: ", response.message());
+            }
+        }
+
+        @Override
+        public void onFailure(Call<List<LatLng>> call, Throwable t) {
+            Log.i("Error: ", call.toString());
+        }
+    };
+
 
     @Override
     public void onMapReady(@NonNull MapboxMap mapboxMap) {

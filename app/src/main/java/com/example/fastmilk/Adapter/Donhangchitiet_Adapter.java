@@ -41,7 +41,9 @@ public class Donhangchitiet_Adapter extends RecyclerView.Adapter<Donhangchitiet_
 
     @Override
     public void onBindViewHolder(@NonNull Donhangchitiet_Adapter.Donhangchitiet_ViewHolder holder, int position) {
-
+        DonHangChiTiet dhct= list.get(position);
+        holder.tvSanPham.setText(dhct.getTenSP());
+        holder.tvSoLuong.setText(dhct.getSoLuong()+"");
     }
 
     @Override
@@ -50,8 +52,11 @@ public class Donhangchitiet_Adapter extends RecyclerView.Adapter<Donhangchitiet_
     }
 
     public class Donhangchitiet_ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvSanPham, tvSoLuong;
         public Donhangchitiet_ViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvSanPham=itemView.findViewById(R.id.tw_name_donhang);
+            tvSoLuong=itemView.findViewById(R.id.tw_soluong_donhang);
         }
     }
 }

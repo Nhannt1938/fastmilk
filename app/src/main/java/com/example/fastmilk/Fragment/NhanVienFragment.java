@@ -20,14 +20,15 @@ import com.example.fastmilk.models.NhanVien;
 
 public class NhanVienFragment extends Fragment {
 
-    private TextView tv_tenNV, tv_SDT, tv_chucvu, tv_doithongtin, tv_doimk, tv_dangxuat, tv_thoat;
+    private TextView tv_tenNV, tv_SDT, tv_chucvu, tv_doithongtin, tv_doimk, tv_dangxuat, tv_thoat, tvTen, tvRank;
     private NhanVien mNhanVien = new NhanVien();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.thongtinnhanvien_fragment, container, false);
-
+        tvTen=view.findViewById(R.id.tvTen);
+        tvRank=view.findViewById(R.id.tvRank);
         tv_tenNV = view.findViewById(R.id.tv_TenNV);
         tv_SDT = view.findViewById(R.id.tv_SDT);
         tv_chucvu = view.findViewById(R.id.tv_Chucvu);
@@ -119,6 +120,8 @@ public class NhanVienFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mNhanVien = restore();
+        tvTen.setText(mNhanVien.getTenNV());
+        tvRank.setText(mNhanVien.getChucVu());
         tv_tenNV.setText(mNhanVien.getTenNV());
         tv_SDT.setText(mNhanVien.getSDT());
         tv_chucvu.setText(mNhanVien.getChucVu());

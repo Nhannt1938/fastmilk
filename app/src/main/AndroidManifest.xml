@@ -16,13 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FastMilk"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activities.ChiTietDonHangActivity"></activity>
         <activity
             android:name=".activities.ChangePasswordActivity"
             android:exported="false" />
         <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.MapsBoxActivity">
-
-        </activity>
+        <activity android:name=".activities.AddNewInformation" />
+        <activity android:name=".activities.MapboxActivity" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.InformationActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

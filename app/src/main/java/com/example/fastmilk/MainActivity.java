@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.fastmilk.Fragment.Chitietdonhang;
 import com.example.fastmilk.Fragment.Danhsachdonhang;
+import com.example.fastmilk.Fragment.MapsFragment;
 import com.example.fastmilk.Fragment.NhanVienFragment;
 import com.example.fastmilk.Fragment.ThongKeDonHang;
 import com.example.fastmilk.models.DonHang;
@@ -40,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading...");
         pDialog.setCanceledOnTouchOutside(false);
-        toolbar = getSupportActionBar();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+
+        loadFragment(new MapsFragment());
+
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -50,22 +51,18 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (item.getItemId()) {
                     case R.id.menu_home:
-                        toolbar.setTitle("Home");
-                        fragment = new Danhsachdonhang();
+                        fragment = new MapsFragment();
                         loadFragment(fragment);
                         return true;
                     case R.id.menu_donhang:
-                        toolbar.setTitle("Don hang");
-                        fragment = new Chitietdonhang();
+                        fragment = new Danhsachdonhang();
                         loadFragment(fragment);
                         return true;
                     case R.id.menu_lichsuGH:
-                        toolbar.setTitle("Lich Su GH");
                         fragment = new ThongKeDonHang();
                         loadFragment(fragment);
                         return true;
                     case R.id.menu_taikhoan:
-                        toolbar.setTitle("Nhan Vien");
                         fragment = new NhanVienFragment();
                         loadFragment(fragment);
                         return true;
